@@ -1,0 +1,32 @@
+---
+interface Props { path: string }
+const { path } = Astro.props;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+];
+const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="border-b border-black/10">
+  <div class="max-w-content mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="/" class="font-display text-2xl tracking-wide text-black no-underline hover:no-underline">
+      PETE MCPHERSON
+    </a>
+    <nav aria-label="Primary">
+      <ul class="flex items-center gap-6 font-display text-lg uppercase">
+        {links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class={`no-underline hover:no-underline ${isActive(href) ? 'text-accent' : 'text-black hover:text-accent'}`}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

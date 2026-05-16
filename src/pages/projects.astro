@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  { title: 'Project One', description: '[Placeholder] A short description of what this project is and why it matters.', tag: 'Writing' },
+  { title: 'Project Two', description: '[Placeholder] A short description of what this project is and why it matters.', tag: 'Podcast' },
+  { title: 'Project Three', description: '[Placeholder] A short description of what this project is and why it matters.', tag: 'Course' },
+  { title: 'Project Four', description: '[Placeholder] A short description of what this project is and why it matters.', tag: 'Community' },
+];
+---
+<Base
+  title="Projects — Pete McPherson"
+  description="A selection of projects Pete McPherson is currently working on."
+  path="/projects"
+>
+  <section class="max-w-content mx-auto px-6 pt-20 pb-16">
+    <p class="font-display uppercase tracking-widest text-accent mb-4 text-sm">[Placeholder] Projects</p>
+    <h1 class="text-5xl md:text-7xl mb-6">What I'm building</h1>
+    <p class="text-lg text-black/70 max-w-2xl mb-12">
+      [Placeholder] A short intro paragraph framing Pete's work. Replace with real copy.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((p) => (
+        <ProjectCard title={p.title} description={p.description} tag={p.tag} />
+      ))}
+    </div>
+  </section>
+
+  <NewsletterForm heading="Want updates on these projects?" subheading="Subscribe to the weekly newsletter for behind-the-scenes notes." />
+</Base>
