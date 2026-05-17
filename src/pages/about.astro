@@ -8,10 +8,10 @@ import NewsletterForm from '../components/NewsletterForm.astro';
   path="/about"
 >
   <section class="max-w-content mx-auto px-6 pt-20 pb-12">
-    <p class="font-display uppercase tracking-widest text-accent mb-4 text-sm">[Placeholder] About</p>
-    <h1 class="text-5xl md:text-7xl mb-8">The story so far</h1>
+    <p class="font-display uppercase tracking-widest text-accent mb-4 text-sm animate-fade-in">[Placeholder] About</p>
+    <h1 class="text-5xl md:text-7xl mb-8 animate-fade-in-up">The story so far</h1>
 
-    <div class="space-y-6 text-lg text-black/80 max-w-2xl">
+    <div class="space-y-6 text-lg text-black/80 max-w-2xl reveal reveal-delay-1">
       <p>
         [Placeholder paragraph 1] Pete grew up doing X, fell in love with Y, and spent most of his twenties
         figuring out Z. Replace this paragraph with the real story.
@@ -26,12 +26,12 @@ import NewsletterForm from '../components/NewsletterForm.astro';
       </p>
     </div>
 
-    <div class="my-16 aspect-[16/9] bg-black/5 flex items-center justify-center text-black/40">
+    <div class="my-16 aspect-[16/9] bg-black/5 flex items-center justify-center text-black/40 reveal">
       [Placeholder image]
     </div>
 
-    <h2 class="text-3xl md:text-4xl mb-6">A few quick facts</h2>
-    <ul class="space-y-3 text-lg text-black/80 list-none">
+    <h2 class="text-3xl md:text-4xl mb-6 reveal">A few quick facts</h2>
+    <ul class="space-y-3 text-lg text-black/80 list-none reveal reveal-delay-1">
       <li><span class="text-accent font-display uppercase tracking-wide mr-2">01</span> [Placeholder fact one]</li>
       <li><span class="text-accent font-display uppercase tracking-wide mr-2">02</span> [Placeholder fact two]</li>
       <li><span class="text-accent font-display uppercase tracking-wide mr-2">03</span> [Placeholder fact three]</li>

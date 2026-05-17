@@ -24,10 +24,72 @@ const { title, description = 'Pete McPherson — writer, builder, and curator of
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col">
+    <div id="cursor-ring" aria-hidden="true"></div>
+    <div id="cursor-dot" aria-hidden="true"></div>
     <Header path={path} />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      (() => {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+        if (fine && !reduce) {
+          document.documentElement.classList.add('custom-cursor-active');
+          const dot = document.getElementById('cursor-dot');
+          const ring = document.getElementById('cursor-ring');
+          let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+          let rx = mx, ry = my;
+          window.addEventListener('mousemove', (e) => {
+            mx = e.clientX; my = e.clientY;
+            dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+          });
+          const tick = () => {
+            rx += (mx - rx) * 0.18;
+            ry += (my - ry) * 0.18;
+            ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+            requestAnimationFrame(tick);
+          };
+          tick();
+          const hoverables = 'a, button, input, textarea, [role="button"]';
+          document.addEventListener('mouseover', (e) => {
+            if (e.target.closest && e.target.closest(hoverables)) {
+              ring.classList.add('is-hover');
+              dot.classList.add('is-hover');
+            }
+          });
+          document.addEventListener('mouseout', (e) => {
+            if (e.target.closest && e.target.closest(hoverables)) {
+              ring.classList.remove('is-hover');
+              dot.classList.remove('is-hover');
+            }
+          });
+          document.addEventListener('mouseleave', () => {
+            dot.style.opacity = '0'; ring.style.opacity = '0';
+          });
+          document.addEventListener('mouseenter', () => {
+            dot.style.opacity = '1'; ring.style.opacity = '1';
+          });
+        }
+
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window && reveals.length) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+          reveals.forEach((el) => io.observe(el));
+        } else {
+          reveals.forEach((el) => el.classList.add('is-visible'));
+        }
+      })();
+    </script>
   </body>
 </html>

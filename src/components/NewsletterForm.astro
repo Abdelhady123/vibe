@@ -14,27 +14,12 @@ const {
   <div class="max-w-content mx-auto px-6 text-center">
     <h2 class="text-4xl md:text-5xl mb-4">{heading}</h2>
     <p class="text-white/80 mb-8 max-w-xl mx-auto">{subheading}</p>
-    <form
-      action="#"
-      method="post"
-      class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-      aria-label="Newsletter signup"
-    >
-      <label for="newsletter-email" class="sr-only">Email address</label>
-      <input
-        id="newsletter-email"
-        name="email"
-        type="email"
-        required
-        placeholder="you@example.com"
-        class="flex-1 px-4 py-3 bg-white text-black placeholder-black/40 border-2 border-white focus:outline-none focus:border-accent"
-      />
-      <button
-        type="submit"
-        class="bg-accent text-white font-display uppercase tracking-wide text-lg px-6 py-3 border-2 border-accent hover:bg-white hover:text-accent transition-colors"
-      >
-        Subscribe
-      </button>
-    </form>
+    <div class="max-w-md mx-auto">
+      <script
+        async
+        src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+        data-beehiiv-form="f6988907-9913-4e7a-a797-ba41c345c6a7"
+      ></script>
+    </div>
   </div>
 </section>

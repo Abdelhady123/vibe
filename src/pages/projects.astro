@@ -16,15 +16,17 @@ const projects = [
   path="/projects"
 >
   <section class="max-w-content mx-auto px-6 pt-20 pb-16">
-    <p class="font-display uppercase tracking-widest text-accent mb-4 text-sm">[Placeholder] Projects</p>
-    <h1 class="text-5xl md:text-7xl mb-6">What I'm building</h1>
-    <p class="text-lg text-black/70 max-w-2xl mb-12">
+    <p class="font-display uppercase tracking-widest text-accent mb-4 text-sm animate-fade-in">[Placeholder] Projects</p>
+    <h1 class="text-5xl md:text-7xl mb-6 animate-fade-in-up">What I'm building</h1>
+    <p class="text-lg text-black/70 max-w-2xl mb-12 animate-fade-in-up [animation-delay:0.15s] opacity-0 [animation-fill-mode:both]">
       [Placeholder] A short intro paragraph framing Pete's work. Replace with real copy.
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {projects.map((p) => (
-        <ProjectCard title={p.title} description={p.description} tag={p.tag} />
+      {projects.map((p, i) => (
+        <div class={`reveal reveal-delay-${(i % 4) + 1}`}>
+          <ProjectCard title={p.title} description={p.description} tag={p.tag} />
+        </div>
       ))}
     </div>
   </section>

@@ -7,7 +7,7 @@ interface Props {
 }
 const { title, description, href = '#', tag } = Astro.props;
 ---
-<article class="group border border-black/15 p-6 hover:border-accent transition-colors">
+<article class="group border border-black/15 p-6 hover:border-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
   {tag && <p class="text-xs font-display uppercase tracking-widest text-accent mb-3">{tag}</p>}
   <h3 class="text-2xl mb-3 text-black group-hover:text-accent transition-colors">{title}</h3>
   <p class="text-black/70 mb-4">{description}</p>

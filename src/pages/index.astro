@@ -8,18 +8,20 @@ import NewsletterForm from '../components/NewsletterForm.astro';
   path="/"
 >
   <section class="max-w-content mx-auto px-6 pt-24 pb-20 text-center">
-    <p class="font-display uppercase tracking-widest text-accent mb-6 text-sm">[Placeholder] Welcome</p>
-    <h1 class="text-6xl md:text-8xl mb-6 leading-none">
-      Hi, I'm <span class="text-accent">AbdMj</span>.
+    <p class="font-display uppercase tracking-widest text-accent mb-6 text-sm animate-fade-in">[Placeholder] Welcome</p>
+    <h1 class="text-6xl md:text-8xl mb-6 leading-none animate-fade-in-up">
+      Hi, I'm <span class="text-accent inline-block animate-float">AbdMj</span>.
     </h1>
-    <p class="text-xl md:text-2xl max-w-2xl mx-auto text-black/70 mb-12">
+    <p class="text-xl md:text-2xl max-w-2xl mx-auto text-black/70 mb-12 animate-fade-in-up [animation-delay:0.15s] opacity-0 [animation-fill-mode:both]">
       [Placeholder tagline] A short, punchy sentence about who Pete is and what he does best.
     </p>
   </section>
 
-  <NewsletterForm />
+  <div class="reveal">
+    <NewsletterForm />
+  </div>
 
-  <section class="max-w-content mx-auto px-6 py-24 text-center">
+  <section class="max-w-content mx-auto px-6 py-24 text-center reveal">
     <h2 class="text-4xl md:text-5xl mb-6">What I'm working on</h2>
     <p class="text-lg text-black/70 max-w-2xl mx-auto mb-10">
       [Placeholder] A short intro paragraph describing Pete's current focus, projects, and the kind of work he loves
@@ -27,7 +29,7 @@ import NewsletterForm from '../components/NewsletterForm.astro';
     </p>
     <a
       href="/projects"
-      class="inline-block bg-accent text-white font-display uppercase tracking-wide text-lg px-8 py-4 border-2 border-accent no-underline hover:bg-white hover:text-accent transition-colors"
+      class="inline-block bg-accent text-white font-display uppercase tracking-wide text-lg px-8 py-4 border-2 border-accent no-underline hover:bg-white hover:text-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
     >
       See the Projects
     </a>
